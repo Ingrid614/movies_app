@@ -1,13 +1,13 @@
-import 'package:ludokin_agent/ui/screens/account_screen.dart';
-import 'package:ludokin_agent/ui/screens/buykin_screen.dart';
+import 'package:ludokin_agent/ui/screens/profile_screen.dart';
+import 'package:ludokin_agent/ui/screens/buy_screen.dart';
 import 'package:ludokin_agent/ui/screens/home_screen.dart';
 import 'package:ludokin_agent/ui/screens/login_screen.dart';
 import 'package:ludokin_agent/ui/screens/settings_screen.dart';
-import 'package:ludokin_agent/ui/screens/updateaccount_screen.dart';
-import 'package:ludokin_agent/ui/screens/updatepassword_screen.dart';
+import 'package:ludokin_agent/ui/screens/update_profile_screen.dart';
+import 'package:ludokin_agent/ui/screens/update_password_screen.dart';
 
 import '../screens/chat_screen.dart';
-import '../screens/sellkin_screen.dart';
+import '../screens/sell_screen.dart';
 import '../screens/signup_screen.dart';
 
 class Routes {
@@ -28,12 +28,12 @@ class Routes {
       '/login': (context) => const LoginScreen(),
       '/signup': (context) => const SignUpScreen(),
       '/home': (context) => const HomeScreen(),
-      '/sellkin': (context) => const SellKinScreen(),
-      '/buykin': (context) => const BuyKinScreen(),
+      '/sellkin': (context) => const SellScreen(),
+      '/buykin': (context) => const BuyScreen(),
       '/chat': (context) => const ChatScreen(),
       '/settings': (context) => const SettingsScreen(),
-      '/account': (context) => const AccountScreen(),
-      '/updateaccount': (context) => const UpdateAccountScreen(),
+      '/account': (context) => const ProfileScreen(),
+      '/updateaccount': (context) => const UpdateProfileScreen(),
       '/updatepassword': (context) => const UpdatePasswordScreen()
     };
   }

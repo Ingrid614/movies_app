@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 
-class BuyKinScreen extends StatelessWidget{
-  const BuyKinScreen({Key? key}) : super(key: key);
+class ProfileScreen extends StatelessWidget{
+  const ProfileScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

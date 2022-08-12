@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 
-class UpdateAccountScreen extends StatelessWidget{
-  const UpdateAccountScreen({Key? key}) : super(key: key);
+class SellScreen extends StatelessWidget{
+  const SellScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 
-class SellKinScreen extends StatelessWidget{
-  const SellKinScreen({Key? key}) : super(key: key);
+class BuyScreen extends StatelessWidget{
+  const BuyScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
