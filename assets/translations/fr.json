@@ -1,0 +1,18 @@
+{
+  "login": "connexion",
+  "create_an_account": "pas encore de compte? s'inscrire",
+  "forgot_password": "mot de passe oublie?",
+  "user_name": "nom d'utilisateur",
+  "password": "mot de passe",
+  "sign_up": "s'inscrire",
+  "already_have_account": "deja un compte? se connecter",
+  "confirm_password": "confirmer le mot de passe",
+  "name": "noms et prenoms",
+  "date_of_birth": "date de naissance",
+  "point_of_sale": "localisation du point de vente",
+  "balance": "solde",
+  "buy": "acheter",
+  "sell": "vendre",
+  "whatsapp_number": "numero whatsapp",
+
+}
