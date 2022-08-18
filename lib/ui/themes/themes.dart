@@ -55,6 +55,16 @@ ThemeData darkTheme = ThemeData(
 );
 //
 ThemeData lightTheme = ThemeData(
+  appBarTheme: const AppBarTheme(
+    elevation: 0,
+    backgroundColor: Colors.transparent,
+    centerTitle: true,
+    titleTextStyle: TextStyle(
+      fontWeight: FontWeight.bold,
+      color: Colors.deepPurple,
+      fontSize: 18.0,
+    ),
+  ),
   brightness: Brightness.light,
   primarySwatch: Colors.deepPurple,
   fontFamily: GoogleFonts.poppins().fontFamily,
@@ -89,8 +99,12 @@ ThemeData lightTheme = ThemeData(
     ),
   ),
   inputDecorationTheme: const InputDecorationTheme(
-    floatingLabelBehavior: FloatingLabelBehavior.always,
-    border: OutlineInputBorder(),
+    floatingLabelBehavior: FloatingLabelBehavior.never,
+    border: OutlineInputBorder(
+      borderSide: BorderSide(color: Color(0xFFEDF2F7)),
+      borderRadius: BorderRadius.zero,
+    ),
+    constraints: BoxConstraints(maxHeight: 50.0),
   ),
   textTheme: const TextTheme(
     headline4: TextStyle(
