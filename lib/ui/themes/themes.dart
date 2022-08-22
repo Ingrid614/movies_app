@@ -76,6 +76,9 @@ ThemeData lightTheme = ThemeData(
       fixedSize: MaterialStateProperty.all(
         const Size(double.maxFinite, 50.0),
       ),
+      elevation: MaterialStateProperty.all(
+       0.0,
+      ),
     ),
   ),
   textButtonTheme: TextButtonThemeData(
@@ -99,11 +102,12 @@ ThemeData lightTheme = ThemeData(
     ),
   ),
   inputDecorationTheme: const InputDecorationTheme(
-    floatingLabelBehavior: FloatingLabelBehavior.never,
+    floatingLabelBehavior: FloatingLabelBehavior.always,
     border: OutlineInputBorder(
       borderSide: BorderSide(color: Color(0xFFEDF2F7)),
       borderRadius: BorderRadius.zero,
     ),
+    labelStyle:  TextStyle(color: Color(0xff390069)),
     constraints: BoxConstraints(maxHeight: 50.0),
   ),
   textTheme: const TextTheme(

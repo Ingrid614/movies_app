@@ -1,11 +1,11 @@
 {
-  "login": "connexion",
+  "login": "SE CONNECTER",
   "create_an_account": "pas encore de compte? s'inscrire",
   "forgot_password": "mot de passe oublie?",
   "user_name": "nom d'utilisateur",
   "password": "mot de passe",
-  "sign_up": "s'inscrire",
-  "already_have_account": "deja un compte? se connecter",
+  "sign_up": "INSCRIPTION",
+  "already_have_account": "deja membre? se connecter",
   "confirm_password": "confirmer le mot de passe",
   "name": "noms et prenoms",
   "date_of_birth": "date de naissance",
@@ -13,6 +13,9 @@
   "balance": "solde",
   "buy": "acheter",
   "sell": "vendre",
-  "whatsapp_number": "numero whatsapp"
+  "required_field": "Veuillez entrer du texte",
+  "whatsapp_number": "numero whatsapp",
+  "cni_number": "numero CNI",
+  "transaction": "TRANSACTION"
 
 }

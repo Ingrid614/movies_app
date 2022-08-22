@@ -25,7 +25,7 @@ class Routes {
 
   static routes(context){
     return {
-      '/login': (context) => const LoginScreen(),
+      '/login': (context) =>  LoginScreen(),
       '/signup': (context) => const SignUpScreen(),
       '/home': (context) => const HomeScreen(),
       '/sellkin': (context) => const SellScreen(),

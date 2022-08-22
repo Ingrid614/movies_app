@@ -1,4 +1,21 @@
 {
-    "login": "Login"
+    "login": "LOGIN",
+    "create_an_account": "don't have account? sign up",
+    "forgot_password": "forgot password?",
+    "user_name": "user name",
+    "password": "password",
+    "sign_up": "SIGN UP",
+    "already_have_account": "already have account? log in",
+    "confirm_password": "confirm password",
+    "name": "name and surname",
+    "date_of_birth": "date of birth",
+    "point_of_sale": "point of sale",
+    "balance": "balance",
+    "buy": "buy",
+    "sell": "sell",
+    "required_field": "Please enter some text",
+    "whatsapp_number": "whatsapp number",
+    "cni_number": "CNI number",
+    "transaction": "TRANSACTION"
 }
 

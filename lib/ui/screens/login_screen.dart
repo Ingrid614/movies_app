@@ -1,9 +1,16 @@
+import 'dart:ffi';
+
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:ludokin_agent/ui/widgets/gap.dart';
 
+import '../widgets/password_field.dart';
+
 class LoginScreen extends StatelessWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+   LoginScreen({Key? key}) : super(key: key);
+
+  bool passwordVisible = false ;
+
 
   @override
   Widget build(BuildContext context) {
@@ -19,48 +26,61 @@ class LoginScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const TextField(
+                     TextField(
                       obscureText: false,
                       decoration: InputDecoration(
-                        labelText: 'Nom d utilisateur',
+                        labelText: 'user_name'.tr(),
                       ),
                     ),
                     const Gap(),
-                    const TextField(
-                      obscureText: true,
-                      decoration: InputDecoration(
-                        labelText: 'Mot de passe',
-                      ),
-                    ),
+
+
+
+
+
+                    PasswordField(),
+
+
+
                     const Gap(),
-                    const Align(
+                     Align(
                       alignment: Alignment.centerLeft,
-                      child: Text(
-                        'Mot de passe oublie?',
+                      child: InkWell(
+                        onTap: (){},
+                        child:Text(
+                        'forgot_password',
                         style: TextStyle(
-                            color: Colors.purple,
+                            color: Colors.deepPurple,
                             decoration: TextDecoration.underline),
-                      ),
-                    ),
-                    const Gap(),
+                      ).tr(),
+                    )
+                     ),
+                    const Gap(size: 40.0,),
                     ElevatedButton(
                       onPressed: () {},
                       child: const Text(
                         'login',
                         style: TextStyle(color: Colors.white),
                       ).tr(),
+
                     ),
                     const Gap(size: 20.0),
-                    const Text(
+                    InkWell(
+                      onTap: (){},
+                      child:Text(
                       'create_an_account',
                       style: TextStyle(
-                        color: Colors.purple,
+                        color: Colors.deepPurple,
                         decoration: TextDecoration.underline,
                       ),
                     ).tr(),
+                    )
                   ]),
             ),
+
           ),
         ));
   }
+
+
 }
