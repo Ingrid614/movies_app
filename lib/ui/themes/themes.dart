@@ -55,6 +55,9 @@ ThemeData darkTheme = ThemeData(
 );
 //
 ThemeData lightTheme = ThemeData(
+ iconTheme: IconThemeData(
+  color: Color(0xff818181),
+ ),
   appBarTheme: const AppBarTheme(
     elevation: 0,
     backgroundColor: Colors.transparent,
@@ -70,6 +73,7 @@ ThemeData lightTheme = ThemeData(
   fontFamily: GoogleFonts.poppins().fontFamily,
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ButtonStyle(
+
       textStyle: MaterialStateProperty.all(
         const TextStyle(fontSize: 16.0),
       ),
@@ -121,4 +125,14 @@ ThemeData lightTheme = ThemeData(
       color: Colors.white,
     ),
   ),
+  listTileTheme: ListTileThemeData(
+    shape: OutlineInputBorder(
+      borderRadius: BorderRadius.zero,
+      borderSide: BorderSide(color: Color(0xff818181))
+    ),
+    iconColor: Colors.deepPurple,
+    textColor: Colors.deepPurple,
+    tileColor: Colors.white
+
+  )
 );

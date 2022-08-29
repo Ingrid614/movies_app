@@ -9,7 +9,7 @@ class PasswordField extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
    return BlocBuilder<PasswordVisibleCubit,bool>(
-       builder:(BuildContext context, bool visible) {
+       builder:(_, bool visible) {
      return TextFormField(
 
        decoration: InputDecoration(

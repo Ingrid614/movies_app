@@ -1,12 +1,41 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
+import '../routes/routes.dart';
 import '../widgets/gap.dart';
 import '../widgets/password_field.dart';
-
-class SignUpScreen extends StatelessWidget{
+class SignUpScreen extends StatefulWidget{
   const SignUpScreen({Key? key}) : super(key: key);
+
+  @override
+  State<StatefulWidget> createState() => SignUpScreenState();
+
+
+}
+
+class SignUpScreenState extends State<SignUpScreen>{
+
+
+  DateTime selectedDate= DateTime.now();
+  final DateFormat format = DateFormat('dd-MM-yyyy');
+  TextEditingController controller = TextEditingController();
+
+
+  Future<void> selectDate(BuildContext context)async {
+    final DateTime? picked= await showDatePicker(
+      context: context,
+      initialDate: selectedDate,
+      firstDate: DateTime(1900),
+      lastDate: DateTime(2101),
+    );
+    if(picked!=null && picked!=selectedDate){
+      selectedDate=picked;
+      final String Date= format.format(selectedDate);
+      controller.text = Date;
+      setState(() {});
+    }
+
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,12 +58,24 @@ class SignUpScreen extends StatelessWidget{
                 ),
               ),
               Gap(),
-              TextField(
+              Row(
+                  children:[
+                    Expanded(
+                      child: TextField(
+                controller: controller,
                 obscureText: false,
                 decoration: InputDecoration(
                   labelText: "date_of_birth".tr(),
                 ),
               ),
+                    ),
+                    Gap(),
+                    IconButton(
+                        onPressed: (){
+                          selectDate(context);                        },
+                        icon: Icon(Icons.calendar_month_outlined)
+                    )
+                  ]),
               Gap(),
               TextField(
                 obscureText: false,
@@ -83,6 +124,9 @@ class SignUpScreen extends StatelessWidget{
               ),
                Gap(),
                InkWell(
+                 onTap: (){
+                   Navigator.pushReplacementNamed(context, Routes.login);
+                 },
                 child: Text(
                   "already_have_account",
                   style: TextStyle(

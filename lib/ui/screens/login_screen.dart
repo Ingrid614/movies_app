@@ -4,6 +4,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:ludokin_agent/ui/widgets/gap.dart';
 
+import '../routes/routes.dart';
 import '../widgets/password_field.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -57,7 +58,9 @@ class LoginScreen extends StatelessWidget {
                      ),
                     const Gap(size: 40.0,),
                     ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushReplacementNamed(context, Routes.bottomnavbar);
+                      },
                       child: const Text(
                         'login',
                         style: TextStyle(color: Colors.white),
@@ -66,7 +69,9 @@ class LoginScreen extends StatelessWidget {
                     ),
                     const Gap(size: 20.0),
                     InkWell(
-                      onTap: (){},
+                      onTap: (){
+                        Navigator.pushReplacementNamed(context, Routes.signup);
+                      },
                       child:Text(
                       'create_an_account',
                       style: TextStyle(
