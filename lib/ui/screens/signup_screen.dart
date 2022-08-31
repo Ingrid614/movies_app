@@ -116,7 +116,9 @@ class SignUpScreenState extends State<SignUpScreen>{
               ),
               Gap(size: 20.0,),
               ElevatedButton(
-                  onPressed: (){},
+                  onPressed: (){
+                    Navigator.pushReplacementNamed(context, Routes.bottomnavbar);
+                  },
                   child: const Text(
                     "sign_up",
                     style: TextStyle(color: Colors.white),
@@ -125,7 +127,7 @@ class SignUpScreenState extends State<SignUpScreen>{
                Gap(),
                InkWell(
                  onTap: (){
-                   Navigator.pushReplacementNamed(context, Routes.login);
+                   Navigator.pushNamed(context, Routes.login);
                  },
                 child: Text(
                   "already_have_account",

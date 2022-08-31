@@ -59,7 +59,7 @@ class LoginScreen extends StatelessWidget {
                     const Gap(size: 40.0,),
                     ElevatedButton(
                       onPressed: () {
-                        Navigator.pushReplacementNamed(context, Routes.bottomnavbar);
+                        Navigator.pushNamed(context, Routes.bottomnavbar);
                       },
                       child: const Text(
                         'login',
@@ -70,7 +70,7 @@ class LoginScreen extends StatelessWidget {
                     const Gap(size: 20.0),
                     InkWell(
                       onTap: (){
-                        Navigator.pushReplacementNamed(context, Routes.signup);
+                        Navigator.pushNamed(context, Routes.signup);
                       },
                       child:Text(
                       'create_an_account',

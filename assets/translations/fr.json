@@ -35,6 +35,15 @@
   "dark": "sombre",
   "language": "Langue",
   "scan": "SCANNEZ LE CODE QR",
-  "account": "compte"
+  "account": "compte",
+  "update_account": "Modifier les informations du compte",
+  "update_password": "changer le mot de passe",
+  "recruited_persons": "Personnes enrôlées",
+  "commission": "commission",
+  "update_account_title": "MISE A JOUR DU COMPTE",
+  "update": "METTRE A JOUR",
+  "update_password_title": "UPDATE PASSWORD",
+  "enter_old_password": "Ancien mot de passe",
+  "enter_new_password": "Nouveau mot de passe"
 
 }

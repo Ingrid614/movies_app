@@ -44,6 +44,7 @@ dependencies:
   qr_code_scanner: ^1.0.1
   qr_flutter: ^4.0.0
   camera: ^0.10.0+1
+  image_picker: ^0.8.5+3
 
 dev_dependencies:
   flutter_test:

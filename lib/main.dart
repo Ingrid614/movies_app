@@ -40,27 +40,34 @@ class MyApp extends StatelessWidget {
         light: lightTheme,
         dark: darkTheme,
         initial: AdaptiveThemeMode.light,
-        builder: (theme, darkTheme) => MaterialApp(
-            localizationsDelegates: context.localizationDelegates,
-            supportedLocales: context.supportedLocales,
-            locale: context.locale,
-            title: 'Flutter Demo',
-            debugShowCheckedModeBanner: false,
-            theme: lightTheme,
+        builder: (theme, darkTheme) =>
+            // MaterialApp(
+            // localizationsDelegates: context.localizationDelegates,
+            // supportedLocales: context.supportedLocales,
+            // locale: context.locale,
+            // title: 'Flutter Demo',
+            // debugShowCheckedModeBanner: false,
+            // theme: lightTheme,
             // initialRoute: '/',
             // routes: Routes.routes(context),
-            home: MultiBlocProvider(
+             MultiBlocProvider(
               providers: [
                 BlocProvider(create: (_) => SplashCubit()..isLoggedIn()),
                 BlocProvider(create: (_) => PasswordVisibleCubit()..togglePasswordVisible())
               ],
               child: MaterialApp(
-                initialRoute: '/',
-                routes: Routes.routes(context),
-                home: LoginScreen(),
+                  localizationsDelegates: context.localizationDelegates,
+                  supportedLocales: context.supportedLocales,
+                  locale: context.locale,
+                  title: 'Flutter Demo',
+                  debugShowCheckedModeBanner: false,
+                  theme: lightTheme,
+                  initialRoute: '/',
+                  routes: Routes.routes(context),
+                  home: LoginScreen(),
               ),
             )
-            // home: const SplashScreen(),
-            ));
+            );
+
   }
 }

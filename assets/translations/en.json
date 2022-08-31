@@ -36,6 +36,16 @@
     "profile": "PROFILE",
     "language": "Language",
     "scan": "SCAN THE QR CODE",
-    "account": "account"
+    "account": "account",
+    "update_account": "Update account information",
+    "update_password": "Update password",
+    "recruited_persons": "Recruited persons",
+    "commission": "commission",
+    "update_account_title": "UPDATE PROFILE",
+    "update": "UPDATE",
+    "update_password_title": "UPDATE PASSWORD",
+    "enter_old_password": "Enter old password",
+    "enter_new_password": "Enter new password",
+
 }
 

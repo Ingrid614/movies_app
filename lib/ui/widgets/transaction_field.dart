@@ -35,7 +35,7 @@ class TransactionFieldState extends State<TransactionField>{
   if(result != null){
     File file = File(result.files.single.path??'');
     PlatformFile  file1 = result.files.first;
-    proofController.text=result.files.first.name;
+    proofController.text=result.files.first.name ;
     setState(() {});
   }else{
 
@@ -89,7 +89,7 @@ class TransactionFieldState extends State<TransactionField>{
                 IconButton(
                     onPressed: (){
 
-                 Navigator.pushReplacementNamed(context, Routes.scan);
+                 Navigator.pushNamed(context, Routes.scan);
                       },
                     icon: SvgPicture.asset('assets/images/scan-outlined.svg',color: Color(0xff818181),)),
             ]),
