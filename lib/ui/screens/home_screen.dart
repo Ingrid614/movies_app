@@ -25,7 +25,7 @@ class HomeScreen extends StatelessWidget {
                   children: [
                     Gap(size: 5),
                     Container(
-                      height: w*0.4,
+                      height: w*0.3,
                       child: Column(
                           children:[
                       Container(
@@ -116,21 +116,20 @@ class HomeScreen extends StatelessWidget {
                   ),
                   Gap(size: 20),
                   Container(
-                      alignment: Alignment.bottomLeft,
-                      child: Text("recent_transaction",
+                      height: w*0.7,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children:[
+                      Text("recent_transaction",
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 14,
                             color: Colors.deepPurple,
                             decoration: TextDecoration.underline,
-
-                          )
-                      ).tr()
-                  ),
-                                Gap(),
-                          Container(
-                            height: w*0.5,
-                              child: ListView(
+                          ),
+                        textAlign: TextAlign.left,
+                      ).tr(),
+                      ListView(
                                   scrollDirection: Axis.vertical,
                                   shrinkWrap: true,
                                   children:[
@@ -167,7 +166,7 @@ class HomeScreen extends StatelessWidget {
                                         name: "Russel",
                                         isSelling: false),
                                     Gap()
-
+                                    ])
           ])
           )
                 ],)
