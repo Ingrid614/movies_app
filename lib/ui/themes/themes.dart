@@ -112,7 +112,7 @@ ThemeData lightTheme = ThemeData(
       borderRadius: BorderRadius.zero,
     ),
     labelStyle:  TextStyle(color: Color(0xff390069)),
-    constraints: BoxConstraints(maxHeight: 50.0),
+    // constraints: BoxConstraints(maxHeight: 50.0),
   ),
   textTheme: const TextTheme(
     headline4: TextStyle(

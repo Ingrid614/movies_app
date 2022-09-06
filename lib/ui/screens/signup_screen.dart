@@ -48,6 +48,7 @@ class SignUpScreenState extends State<SignUpScreen>{
         padding: const EdgeInsets.all(8),
         child: SafeArea(
           child: SingleChildScrollView(
+            scrollDirection: Axis.vertical,
             child:Column(
             children: [
               Gap(size: 40.0),

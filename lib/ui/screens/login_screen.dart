@@ -22,11 +22,16 @@ class LoginScreen extends StatelessWidget {
         body: Padding(
           padding: const EdgeInsets.all(8),
           child: SafeArea(
-            child: Center(
+            child: SingleChildScrollView(
+              scrollDirection: Axis.vertical,
+              child:Center(
               child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
+                    Center(
+                       child: Image.asset('assets/images/Saction Logo UNO-01.png',color: Colors.deepPurple),
+                    ),
                      TextField(
                       obscureText: false,
                       decoration: InputDecoration(
@@ -82,6 +87,7 @@ class LoginScreen extends StatelessWidget {
                     )
                   ]),
             ),
+          )
 
           ),
         ));

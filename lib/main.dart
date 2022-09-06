@@ -5,16 +5,17 @@ import 'package:ludokin_agent/ui/routes/routes.dart';
 import 'package:ludokin_agent/ui/screens/bottom_navigation_bar_screen.dart';
 import 'package:ludokin_agent/ui/screens/buy_screen.dart';
 import 'package:ludokin_agent/ui/screens/home_screen.dart';
+import 'package:ludokin_agent/ui/screens/inbox_screen.dart';
 import 'package:ludokin_agent/ui/screens/login_screen.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:adaptive_theme/adaptive_theme.dart';
+import 'package:ludokin_agent/ui/screens/onboarding.dart';
 import 'package:ludokin_agent/ui/screens/sell_screen.dart';
 import 'package:ludokin_agent/ui/screens/settings_screen.dart';
 import 'package:ludokin_agent/ui/screens/signup_screen.dart';
+import 'package:ludokin_agent/ui/screens/splash_screen.dart';
 import 'package:ludokin_agent/ui/themes/themes.dart';
-import 'package:ludokin_agent/ui/widgets/camera.dart';
 import 'package:ludokin_agent/ui/widgets/qr_scanner.dart';
-
 import 'business/cubit/password_visible.dart';
 
 void main() async {
@@ -41,15 +42,7 @@ class MyApp extends StatelessWidget {
         dark: darkTheme,
         initial: AdaptiveThemeMode.light,
         builder: (theme, darkTheme) =>
-            // MaterialApp(
-            // localizationsDelegates: context.localizationDelegates,
-            // supportedLocales: context.supportedLocales,
-            // locale: context.locale,
-            // title: 'Flutter Demo',
-            // debugShowCheckedModeBanner: false,
-            // theme: lightTheme,
-            // initialRoute: '/',
-            // routes: Routes.routes(context),
+
              MultiBlocProvider(
               providers: [
                 BlocProvider(create: (_) => SplashCubit()..isLoggedIn()),
@@ -64,7 +57,7 @@ class MyApp extends StatelessWidget {
                   theme: lightTheme,
                   initialRoute: '/',
                   routes: Routes.routes(context),
-                  home: LoginScreen(),
+                  home: SplashScreen(),
               ),
             )
             );

@@ -18,8 +18,6 @@ class SettingsScreenState extends State<SettingsScreen>{
   var itemsThemes =["clear".tr(),"dark".tr()];
  String dropDownValueTheme="clear".tr();
  String dropDownValueLanguage="french".tr();
- TextEditingController themeController=TextEditingController();
- TextEditingController languageController=TextEditingController();
 
 
 
@@ -27,7 +25,7 @@ class SettingsScreenState extends State<SettingsScreen>{
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("settings").tr(),
+        title: const Text("settings_title").tr(),
       ),
       body: Padding(
         padding: const EdgeInsets.all(8),
@@ -66,17 +64,17 @@ class SettingsScreenState extends State<SettingsScreen>{
                 children:[
                   Icon(Icons.contrast, color: Colors.deepPurple,),
                Gap(),
-               Expanded
-                 (child:DropdownButton(
-                isExpanded: true,
-                value: dropDownValueTheme,
-                 icon: const Icon(Icons.keyboard_arrow_down_rounded,color: Colors.deepPurple,),
-                elevation: 0,
-                items: itemsThemes.map((String items){
-                return DropdownMenuItem(
-                value: items,
-                child: Text(items, style: TextStyle(color: Colors.deepPurple),)
-            );
+               Expanded(
+                 child:DropdownButton(
+                    isExpanded: true,
+                    value: dropDownValueTheme,
+                     icon: const Icon(Icons.keyboard_arrow_down_rounded,color: Colors.deepPurple,),
+                    elevation: 0,
+                    items: itemsThemes.map((String items){
+                    return DropdownMenuItem(
+                    value: items,
+                    child: Text(items, style: TextStyle(color: Colors.deepPurple),)
+                );
           }).toList(),
           onChanged: (String? newValue){
             setState(() {
@@ -87,10 +85,6 @@ class SettingsScreenState extends State<SettingsScreen>{
       ),
     )
               ])
-
-
-
-
 
           ],
         )

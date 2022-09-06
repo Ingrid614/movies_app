@@ -20,7 +20,7 @@ class _BottomNavigationBarScreenState extends State<BottomNavigationBarScreen>{
 
   int selectedItem = 0;
 
-  List<Widget> screens =const [HomeScreen(),ChatScreen(),CommandScreen(),SettingsScreen(),ProfileScreen()];
+  List<Widget> screens = [HomeScreen(),ChatScreen(),CommandScreen(),SettingsScreen(),ProfileScreen()];
 
   @override
   Widget build(BuildContext context) {

@@ -2,32 +2,38 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ludokin_agent/business/cubit/splash_cubit.dart';
 
+import '../routes/routes.dart';
+
 class SplashScreen extends StatelessWidget {
   const SplashScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    context.read<SplashCubit>().isLoggedIn();
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: SafeArea(
+      body: SafeArea(
           child: BlocListener<SplashCubit, bool>(
               listener: (BuildContext ctx, bool loggedIn) {
                 if (loggedIn) {
-                  print("logged in");
+                  // context.read<SplashCubit>().isLoggedIn();
+                  Navigator.pushReplacementNamed(context, Routes.onboarding);
                 } else {
-                  print("not logged in");
+                  Navigator.pushReplacementNamed(context, Routes.login);
                 }
               },
-              child: Center(
-                child: ElevatedButton(
-                    onPressed: () {
-                      context.read<SplashCubit>().isLoggedIn();
-                    },
-                    child: const Text("Change State")),
-              )),
+              child: Expanded(
+                  child:Container(
+                    width: MediaQuery.of(context).size.width,
+                      height: MediaQuery.of(context).size.height,
+                      color: Colors.deepPurple,
+                    child: Center(
+                      child: Image.asset('assets/images/Saction Logo UNO-01.png',color: Colors.white),
+              )
+              )
+          )
+    )
         ),
-      ),
+
     );
   }
 }

@@ -2,8 +2,6 @@ import 'dart:io';
 
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../routes/routes.dart';
@@ -21,18 +19,19 @@ class ProfileScreen extends StatefulWidget{
 class ProfileScreenState extends State<ProfileScreen>{
 
 final ImagePicker picker = ImagePicker();
-late File imageFile;
+late dynamic imageFile;
 
 @override
   void initState() {
-imageFile=File('assets/images/user-image.png');
+imageFile=AssetImage('assets/images/user-image.png');
   }
 
   Future<void> pickImageFromGallery() async {
   final XFile? image =await picker.pickImage(source: ImageSource.gallery);
   if(image!=null) {
     setState(() {
-      imageFile = File(image.path);
+      imageFile =FileImage(File(image.path));
+
     });
   }
 }
@@ -40,7 +39,7 @@ imageFile=File('assets/images/user-image.png');
     final XFile? image = await picker.pickImage(source: ImageSource.camera);
     if (image != null) {
       setState(() {
-        imageFile =File(image.path);
+        imageFile =FileImage(File(image.path));
       });
     }
   }
@@ -49,29 +48,30 @@ imageFile=File('assets/images/user-image.png');
    return showDialog(context: context, builder:(BuildContext context)
    {
      return AlertDialog(
-         title: Text(
+         title: const Text(
            "CHOOSE OPTION", style: TextStyle(color: Colors.deepPurple),),
          content: SingleChildScrollView(
            child: ListBody(
                children: [
-                 Divider(height: 1, color: Colors.deepPurple,),
+                 const Divider(height: 1, color: Colors.deepPurple,),
                  ListTile(
                    onTap: () {
                      pickImageFromGallery();
                    },
-                   title: Text("Gallery"),
-                   leading: Icon(Icons.image, color: Colors.deepPurple,),
+                   title: const Text("Gallery"),
+                   leading: const Icon(Icons.image, color: Colors.deepPurple,),
                  ),
                  ListTile(
                    onTap: () {
                      pickImageFromCamera();
                    },
                    title: Text("Camera"),
-                   leading: Icon(
+                   leading: const Icon(
                      Icons.camera_alt_outlined, color: Colors.deepPurple,),
                  )
 
-               ]),)
+               ]),
+         )
      );
    });
 }
@@ -99,11 +99,12 @@ imageFile=File('assets/images/user-image.png');
                           children:[
                             Row(
                             children:[
+                              Gap(),
                                InkWell(
 
                                 child:CircleAvatar(
-                                 radius: 50,
-                                  foregroundImage: FileImage(imageFile) ,
+                                 radius: 40,
+                                  foregroundImage: imageFile ,
                        ),
                                 onTap: (){
                                   chooseImageSource();
@@ -128,7 +129,7 @@ imageFile=File('assets/images/user-image.png');
                                       ),
                                       ).tr()
                                     ,
-                                    Gap(size:53.05),
+                                    Gap(size:40),
                                     Center(
                                           child: Row(
                                               children:const [
@@ -192,7 +193,7 @@ imageFile=File('assets/images/user-image.png');
                       color: Colors.deepPurple
                     )
                     ).tr(),
-                    trailing:Text("xxxx",
+                    trailing:const Text("xxxx",
                   style: TextStyle(
                     color: Colors.deepPurple
                   ),
@@ -213,6 +214,18 @@ imageFile=File('assets/images/user-image.png');
                     color: Colors.deepPurple
                   ),
                 ),
+              ),
+              Gap(),
+              ListTile(
+                textColor: Colors.deepPurple,
+                title: Text("kin_address").tr(),
+                trailing: Icon(
+                    Icons.arrow_forward_ios_outlined,
+                    color: Colors.deepPurple,
+              ),
+                onTap: (){
+                  Navigator.pushNamed(context, Routes.kinaddress);
+                },
               )
             ],
           ),
@@ -220,5 +233,4 @@ imageFile=File('assets/images/user-image.png');
       ),
     );
   }
-
 }

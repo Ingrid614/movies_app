@@ -43,7 +43,7 @@ class UpdataProfileScreenState extends State<UpdateProfileScreen>{
           title: Text("update_account_title").tr(),
           leading: IconButton(
             onPressed: (){
-              Navigator.pushNamed(context, Routes.account);
+              Navigator.pop(context);
             },
               icon: Icon(Icons.arrow_back, color: Colors.deepPurple,)),
         ),
