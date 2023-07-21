@@ -69,6 +69,7 @@ class TransactionFieldState extends State<TransactionField>{
                   ListTile(
                     onTap: () {
                       configureFilePicker();
+                      Navigator.pop(context);
                     },
                     title: Text("Gallery"),
                     leading: Icon(Icons.image, color: Colors.deepPurple,),
@@ -76,6 +77,7 @@ class TransactionFieldState extends State<TransactionField>{
                   ListTile(
                     onTap: () {
                       pickImageFromCamera();
+                      Navigator.pop(context);
                     },
                     title: Text("Camera"),
                     leading: Icon(

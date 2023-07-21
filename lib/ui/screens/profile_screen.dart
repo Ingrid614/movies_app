@@ -57,6 +57,7 @@ imageFile=AssetImage('assets/images/user-image.png');
                  ListTile(
                    onTap: () {
                      pickImageFromGallery();
+                     Navigator.pop(context);
                    },
                    title: const Text("Gallery"),
                    leading: const Icon(Icons.image, color: Colors.deepPurple,),
@@ -64,6 +65,7 @@ imageFile=AssetImage('assets/images/user-image.png');
                  ListTile(
                    onTap: () {
                      pickImageFromCamera();
+                     Navigator.pop(context);
                    },
                    title: Text("Camera"),
                    leading: const Icon(

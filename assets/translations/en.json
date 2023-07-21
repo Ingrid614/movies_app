@@ -14,6 +14,7 @@
     "buy": "BUY",
     "sell": "SELL",
     "required_field": "Please enter some text",
+    "valid_email": "Invalid Email",
     "whatsapp_number": "whatsapp number",
     "cni_number": "CNI number",
     "transaction": "TRANSACTION",
@@ -43,7 +44,7 @@
     "update_account": "Update account information",
     "update_password": "Update password",
     "recruited_persons": "Recruited persons",
-    "commission": "commission",
+    "commission": "Commission",
     "update_account_title": "UPDATE PROFILE",
     "update": "UPDATE",
     "update_password_title": "UPDATE PASSWORD",
@@ -61,7 +62,16 @@
     "finish": "Finish",
     "cash": "Cash payment",
     "transfer": "money transfer",
-    "type_payment": "Type of payment"
+    "type_payment": "Type of payment",
+    "code_promo": "your promo code",
+    "code_parent": "parent promo code",
+    "signingUp" : "Signing Up...",
+    "signUpFailed": "Sign Up failed ",
+    "loginSuccess" : "Login successful",
+    "loggingIn": "Logging in...",
+    "loginFailed": "Login failed ",
+    "wrong credentials": "wrong credentials",
+    "no user found": "No user found"
 
 }
 

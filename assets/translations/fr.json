@@ -14,6 +14,7 @@
   "buy": "ACHETER",
   "sell": "VENDRE",
   "required_field": "Veuillez entrer du texte",
+  "valid_email": "E-mail invalide",
   "whatsapp_number": "numero whatsapp",
   "cni_number": "numero CNI",
   "transaction": "TRANSACTION",
@@ -25,7 +26,7 @@
   "settings_title": "PARAMETRES",
   "settings": "parametres",
   "profile": "PROFIL",
-  "kin_address": "adresse kin du client",
+  "kin_address": "adresse kin ",
   "amount": "montant",
   "date": "date",
   "proof": "preuve de la transaction",
@@ -60,7 +61,14 @@
   "finish": "Terminé",
   "cash": "Paiement en espèces",
   "transfer": "Transfert d'argent",
-  "type_payment": "Type de paiement"
-
-
+  "type_payment": "Type de paiement",
+  "code_promo": "votre code promo",
+  "code_parent": "code promo du parrain",
+  "signingUp" : "Inscription...",
+  "signUpFailed": "Echec d'inscription ",
+  "loginSuccess" : "Connexion reussie",
+  "loggingIn": "Connexion...",
+  "loginFailed": "Echec de connexion ",
+  "wrong credentials": "Informations erronées",
+  "no user found": "Aucun utilisateur trouvé"
 }

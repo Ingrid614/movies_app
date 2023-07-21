@@ -51,6 +51,8 @@ class SettingsScreenState extends State<SettingsScreen>{
                   onChanged: (String? newValue){
                     setState(() {
                       dropDownValueLanguage=newValue!;
+                      // Locale locale = Locale(dropDownValueLanguage);
+                      // context.setLocale(locale);
 
                     });
                   }

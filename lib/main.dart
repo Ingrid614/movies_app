@@ -1,21 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get_storage/get_storage.dart';
+import 'package:ludokin_agent/business/cubit/auth_cubit/auth_cubit.dart';
 import 'package:ludokin_agent/business/cubit/splash_cubit.dart';
 import 'package:ludokin_agent/ui/routes/routes.dart';
-import 'package:ludokin_agent/ui/screens/bottom_navigation_bar_screen.dart';
-import 'package:ludokin_agent/ui/screens/buy_screen.dart';
-import 'package:ludokin_agent/ui/screens/home_screen.dart';
-import 'package:ludokin_agent/ui/screens/inbox_screen.dart';
-import 'package:ludokin_agent/ui/screens/login_screen.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:adaptive_theme/adaptive_theme.dart';
-import 'package:ludokin_agent/ui/screens/onboarding.dart';
-import 'package:ludokin_agent/ui/screens/sell_screen.dart';
-import 'package:ludokin_agent/ui/screens/settings_screen.dart';
-import 'package:ludokin_agent/ui/screens/signup_screen.dart';
+import 'package:ludokin_agent/ui/screens/bottom_navigation_bar_screen.dart';
+import 'package:ludokin_agent/ui/screens/home_screen.dart';
 import 'package:ludokin_agent/ui/screens/splash_screen.dart';
 import 'package:ludokin_agent/ui/themes/themes.dart';
-import 'package:ludokin_agent/ui/widgets/qr_scanner.dart';
+import 'business/cubit/auth_cubit/signup_cubit.dart';
+import 'business/cubit/auth_cubit/update_cubit.dart';
 import 'business/cubit/password_visible.dart';
 
 void main() async {
@@ -37,6 +33,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final box = GetStorage();
+    final id = box.read('id');
+    print(id);
     return AdaptiveTheme(
         light: lightTheme,
         dark: darkTheme,
@@ -46,18 +45,22 @@ class MyApp extends StatelessWidget {
              MultiBlocProvider(
               providers: [
                 BlocProvider(create: (_) => SplashCubit()..isLoggedIn()),
-                BlocProvider(create: (_) => PasswordVisibleCubit()..togglePasswordVisible())
+                BlocProvider(create: (_) => PasswordVisibleCubit()..togglePasswordVisible()),
+                BlocProvider(create: (_) => AuthCubit()),
+                BlocProvider(create: (_) => SignUpCubit()),
+                BlocProvider(create: (_) => UpdateCubit())
+
               ],
               child: MaterialApp(
                   localizationsDelegates: context.localizationDelegates,
                   supportedLocales: context.supportedLocales,
                   locale: context.locale,
-                  title: 'Flutter Demo',
+                  title: 'Kinkiosk',
                   debugShowCheckedModeBanner: false,
                   theme: lightTheme,
                   initialRoute: '/',
                   routes: Routes.routes(context),
-                  home: SplashScreen(),
+                  home: id == null ? const SplashScreen() : const BottomNavigationBarScreen(),
               ),
             )
             );
