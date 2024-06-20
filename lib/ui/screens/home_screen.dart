@@ -1,17 +1,11 @@
-import 'package:easy_localization/easy_localization.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:ludokin_agent/business/cubit/command_cubit/command_cubit.dart';
-import 'package:ludokin_agent/business/cubit/command_cubit/command_state.dart';
-import 'package:ludokin_agent/data/models/client.dart';
-import 'package:ludokin_agent/data/models/commande.dart';
+import 'package:ludokin_agent/data/models/movie.dart';
 import 'package:ludokin_agent/data/providers/api_provider.dart';
 import 'package:ludokin_agent/data/repositories/api_repository.dart';
 import 'package:ludokin_agent/ui/widgets/gap.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../routes/routes.dart';
-import '../widgets/command_field.dart';
+import '../widgets/movie_field.dart';
 import '../widgets/kin_snackbar.dart';
 
 class HomeScreen extends StatefulWidget {
