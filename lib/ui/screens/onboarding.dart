@@ -159,7 +159,7 @@ class OnboardingPagesState extends State<OnboardingPages>{
         fixedSize: MaterialStateProperty.all(Size(69, 50))
       ),
         onPressed: (){
-          Navigator.pushReplacementNamed(context, Routes.login);
+          Navigator.pushReplacementNamed(context, Routes.home);
         },
         child: Text(
           'finish',
