@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 
 
 class ApiProvider{
-  final String baseUrl = 'https://api.themoviedb.org/3/account/12342522';
+  final String baseUrl = 'https://api.themoviedb.org/3/account/6d7f159f5fe1495f52f18b81324552c9';
   final box = GetStorage();
 
   Future<http.Response> getAllMovies () async {
