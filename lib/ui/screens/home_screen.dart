@@ -18,15 +18,13 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   final ApiProvider _apiProvider = ApiProvider();
 
-  Client client = Client(adresseKin: 'hxnynzx2r2tyu', numeroWhatsapp: '658596547', emailClient: 'stephanie2004@gmail.com', nomClient: 'stephanie', updatedAt: DateTime.now(), createdAt: DateTime.now(), id: 1);
   @override
   Widget build(BuildContext context) {
-    Command command1 = Command(id: 1, createdAt: DateTime.now(), updatedAt: DateTime.now(), userId: 1, clientId: 1, adresseKin: 'chnqnquoqcncxnq', montant: 20000, taux: 6,cout: 1200,  client: client, statutId: 1);
     ApiRepository apiRepository = ApiRepository(_apiProvider);
     double w = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
-        title: const Text("transaction").tr(),
+        title: const Text("MOVIES APP").tr(),
       ),
 
       body: Padding(
@@ -73,58 +71,10 @@ class _HomeScreenState extends State<HomeScreen> {
 
                         )
                     ),
-                    Row(
-                      children: [
-                        Expanded(child: ElevatedButton(
-                            onPressed: () {
-                              Navigator.pushReplacementNamed(
-                                  context, Routes.buykin);
-                            },
-                            child: Center(
-                                child: Row(
-                                    mainAxisAlignment: MainAxisAlignment
-                                        .spaceAround,
-                                    crossAxisAlignment: CrossAxisAlignment.center,
-                                    children: [
-                                      const Text(
-                                      "buy",
-                                    ).tr(),
-                                      SvgPicture.asset(
-                                        'assets/images/inbox-archive-fill.svg',
-                                        color: Colors.white,)
-                                    ])
-                            )
-                        )
-                        ),
-                        const Gap(size: 73),
-                        Expanded(child: ElevatedButton(
-                            onPressed: () {
-                              Navigator.pushReplacementNamed(
-                                  context, Routes.sellkin);
-                            },
-                            child: Center(
-                                child: Row(
-                                    mainAxisAlignment: MainAxisAlignment
-                                        .spaceAround,
-                                    crossAxisAlignment: CrossAxisAlignment.center,
-                                    children: [const Text(
-                                      "sell",
-                                  ).tr(),
-                                      SvgPicture.asset(
-                                        'assets/images/inbox-unarchive-fill.svg',
-                                        color: Colors.white,)
-                                    ])
-                            )
-                        )
-                        )
-                      ],
-                    ),
-          ])
-                    ),
                     const Gap(size: 20),
                     Container(
                       alignment: Alignment.bottomLeft,
-                        child: const Text("recent_transaction",
+                        child: const Text("movies",
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 14,
@@ -134,33 +84,33 @@ class _HomeScreenState extends State<HomeScreen> {
                           textAlign: TextAlign.left,
                         ).tr(),
                     ),
-                      BlocConsumer<CommandCubit, CommandState>(
-                        listener: (BuildContext context,CommandState state){
-                          if(state is LoadingCommandFailed){
+                      BlocConsumer<MovieCubit, MovieState>(
+                        listener: (BuildContext context,MovieState state){
+                          if(state is LoadingMovieFailed){
                           showErrorSnack(context,state.message);
                           }
                       },
-                        builder: (BuildContext context, CommandState state) {
+                        builder: (BuildContext context, MovieState state) {
                           switch(state.runtimeType){
-                            case LoadingCommand :
+                            case LoadingMovie :
                               return  const Center(child: CircularProgressIndicator(color: Colors.deepPurple,));
-                            case LoadingCommandSuccess:
+                            case LoadingMovieSuccess:
                               return ListView.builder(
                                 shrinkWrap: true,
                                 itemCount: 1,
-                                // context.read<CommandCubit>().commands.value.length,
+                                // context.read<MovieCubit>().movies.value.length,
                                 physics: const AlwaysScrollableScrollPhysics(),
                                 itemBuilder: (context, int index) {
                                   return Column(
                                     children: [
                                       const Gap(),
-                                      ShowCommand( command: command1,isSelling: true),
+                                      ShowMovie( movie: movie),
                                       const Gap(),
-                                      ShowCommand( command: command1,isSelling: false),
+                                      ShowMovie( movie: movie),
                                       const Gap(),
-                                      ShowCommand( command: command1,isSelling: true),
+                                      ShowMovie( movie: movie),
                                       const Gap(),
-                                      ShowCommand( command: command1,isSelling: false),
+                                      ShowMovie( movie: movie),
                                     ],
                                   );
                                 },
@@ -169,20 +119,20 @@ class _HomeScreenState extends State<HomeScreen> {
                               return ListView.builder(
                                 shrinkWrap: true,
                                 itemCount: 1,
-                                // context.read<CommandCubit>().commands.value.length,
+                                // context.read<MovieCubit>().movies.value.length,
                                 physics: const AlwaysScrollableScrollPhysics(),
                                 itemBuilder: (context, int index) {
                                   return Column(
                                     children: [
                                       const Gap(),
                                       const Gap(),
-                                      ShowCommand( command: command1,isSelling: true),
+                                      ShowMovie( movie: movie),
                                       const Gap(),
-                                      ShowCommand( command: command1,isSelling: false),
+                                      ShowMovie( movie: movie),
                                       const Gap(),
-                                      ShowCommand( command: command1,isSelling: true),
+                                      ShowMovie( movie: movie),
                                       const Gap(),
-                                      ShowCommand( command: command1,isSelling: false),
+                                      ShowMovie( movie: movie),
                                     ],
                                   );
                                 },
