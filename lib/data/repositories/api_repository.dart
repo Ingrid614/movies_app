@@ -3,8 +3,7 @@ import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get_rx/src/rx_types/rx_types.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:ludokin_agent/data/models/commande.dart';
-import '../models/user.dart';
+import 'package:ludokin_agent/data/models/movie.dart';
 import '../providers/api_provider.dart';
 
 class ApiRepository{
