@@ -35,9 +35,9 @@ class InboxScreenState  extends State<InboxScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("INBOX"),
+        title: const Text("INBOX"),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back,color: Colors.deepPurple,),
+          icon: const Icon(Icons.arrow_back,),
           onPressed: (){
             Navigator.pop(context);
             },

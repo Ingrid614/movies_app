@@ -4,7 +4,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:ludokin_agent/ui/screens/chat_screen.dart';
 import 'package:ludokin_agent/ui/screens/profile_screen.dart';
 import 'package:ludokin_agent/ui/screens/settings_screen.dart';
-import 'package:ludokin_agent/ui/screens/splash_screen.dart';
 
 import 'command_screen.dart';
 import 'home_screen.dart';
@@ -20,7 +19,7 @@ class _BottomNavigationBarScreenState extends State<BottomNavigationBarScreen>{
 
   int selectedItem = 0;
 
-  List<Widget> screens = [HomeScreen(),ChatScreen(),CommandScreen(),SettingsScreen(),ProfileScreen()];
+  List<Widget> screens = [HomeScreen(),ChatScreen(),const CommandScreen(),const SettingsScreen(),const ProfileScreen()];
 
   @override
   Widget build(BuildContext context) {
@@ -33,35 +32,32 @@ class _BottomNavigationBarScreenState extends State<BottomNavigationBarScreen>{
             BottomNavigationBarItem(
               activeIcon: SvgPicture.asset('assets/images/home-3-line.svg', color: Colors.deepPurple,) ,
                 label:"home".tr(),
-                icon: SvgPicture.asset('assets/images/home-3-line.svg',color: Color(0xff818181),)
+                icon: SvgPicture.asset('assets/images/home-3-line.svg',color: const Color(0xff818181),)
 
             ),
             BottomNavigationBarItem(
               activeIcon: SvgPicture.asset('assets/images/chat-3-line.svg', color: Colors.deepPurple),
                 label: "chat".tr(),
-                icon: SvgPicture.asset('assets/images/chat-3-line.svg',color: Color(0xff818181),),
+                icon: SvgPicture.asset('assets/images/chat-3-line.svg',color: const Color(0xff818181),),
 
             ),
             BottomNavigationBarItem(
               activeIcon: SvgPicture.asset('assets/images/todo-line.svg', color: Colors.deepPurple) ,
                 label: "command".tr(),
-                icon: SvgPicture.asset('assets/images/todo-line.svg',color: Color(0xff818181),),
+                icon: SvgPicture.asset('assets/images/todo-line.svg',color: const Color(0xff818181),),
 
             ),
             BottomNavigationBarItem(
               activeIcon: SvgPicture.asset('assets/images/settings-line.svg', color: Colors.deepPurple,),
                 label: "settings".tr(),
-                icon: SvgPicture.asset('assets/images/settings-line.svg',color: Color(0xff818181),),
+                icon: SvgPicture.asset('assets/images/settings-line.svg',color: const Color(0xff818181),),
 
             ),
             BottomNavigationBarItem(
                 activeIcon: SvgPicture.asset('assets/images/user-line.svg', color: Colors.deepPurple,),
                 label: "account".tr(),
-                icon: SvgPicture.asset('assets/images/user-line.svg',color: Color(0xff818181),),
-
-
+                icon: SvgPicture.asset('assets/images/user-line.svg',color: const Color(0xff818181),),
             )
-
           ],
               currentIndex: selectedItem,
               onTap: (int index){

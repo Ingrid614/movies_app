@@ -7,4 +7,9 @@ class SplashCubit extends Cubit<bool> {
     // bool loggedIn = false;
     emit(!state);
   }
+
+  @override
+  void onChange(Change<bool> change) {
+    print(change);
+  }
 }

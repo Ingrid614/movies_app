@@ -4,14 +4,14 @@ import '../models/user.dart';
 
 
 class ApiProvider{
-  final String baseUrl = 'http://192.168.100.20:80/api';
+  final String baseUrl = 'http://172.20.10.4:80/api';
   final box = GetStorage();
 
   Future<http.Response> login(Object data) async {
     final Uri url = Uri.parse('$baseUrl/users/login');
     http.Response response = await http.post(url, body: data).timeout(
       const Duration(
-        seconds: 10,
+        seconds: 20,
       ),
     );
     return response;
@@ -46,4 +46,38 @@ class ApiProvider{
      return response ;
  }
 
+  Future<http.Response> createCommand (Object data) async {
+    final Uri uri = Uri.parse('$baseUrl/commandes/');
+    var response = await http.post(
+        uri ,
+        body: data,
+        ).timeout(
+        const Duration(
+            seconds: 20
+        )
+    );
+    return response ;
+  }
+
+  Future<http.Response> getAllCommands () async {
+    final Uri uri = Uri.parse('$baseUrl/users/command/${box.read('id')}');
+
+    var response = await http.get(uri).timeout(const Duration(seconds: 20));
+    return response;
+  }
+
+  Future<http.Response> getRecentsCommands () async {
+    final Uri uri = Uri.parse('$baseUrl/users/recentCommand/${box.read('id')}');
+
+    var response = await http.get(uri).timeout(const Duration(seconds: 20));
+    return response;
+  }
+
+  Future<http.Response> newPassword(Object data) async{
+    final Uri uri = Uri.parse('$baseUrl/users/password/${box.read('id')}');
+
+    var response = http.put(uri,body: data).timeout(const Duration(seconds: 20));
+
+    return response;
+  }
 }

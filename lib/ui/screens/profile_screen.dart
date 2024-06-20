@@ -49,7 +49,7 @@ imageFile=AssetImage('assets/images/user-image.png');
    {
      return AlertDialog(
          title: const Text(
-           "CHOOSE OPTION", style: TextStyle(color: Colors.deepPurple),),
+           "CHOOSE OPTION",),
          content: SingleChildScrollView(
            child: ListBody(
                children: [
@@ -95,13 +95,11 @@ imageFile=AssetImage('assets/images/user-image.png');
                 child: Column(
                   children: [
                     Card(
-                  color: Colors.deepPurple,
-
                       child:Column(
                           children:[
                             Row(
                             children:[
-                              Gap(),
+                              const Gap(),
                                InkWell(
 
                                 child:CircleAvatar(
@@ -114,10 +112,10 @@ imageFile=AssetImage('assets/images/user-image.png');
                               ),
 
 
-                               Gap(),
+                               const Gap(),
                                  Column(
                                   children: [
-                                    Gap(size: 20,),
+                                    const Gap(size: 20,),
                                     const Text("user_name",
                                       style: TextStyle(
                                         color: Colors.white,
@@ -131,10 +129,10 @@ imageFile=AssetImage('assets/images/user-image.png');
                                       ),
                                       ).tr()
                                     ,
-                                    Gap(size:40),
-                                    Center(
+                                    const Gap(size:40),
+                                    const Center(
                                           child: Row(
-                                              children:const [
+                                              children:[
                                                 Icon(Icons.place_outlined,
                                                   color: Colors.white,),
                                                 Text(
@@ -154,17 +152,13 @@ imageFile=AssetImage('assets/images/user-image.png');
                 ),
                        ]),
               ),
-              Gap(),
+              const Gap(),
               ListTile(
                 title: const Text(
                   "update_account",
-                style: TextStyle(
-                  color: Colors.deepPurple
-                ),
                 ).tr(),
                 trailing: const Icon(
                   Icons.arrow_forward_ios_outlined,
-                  color: Colors.deepPurple,
                 ),
                 onTap: (){
                   Navigator.pushNamed(context, Routes.updateaccount);
@@ -174,13 +168,9 @@ imageFile=AssetImage('assets/images/user-image.png');
               ListTile(
                 title: const Text(
                   "update_password",
-                  style: TextStyle(
-                    color: Colors.deepPurple
-                  ),
                 ).tr(),
                     trailing: const Icon(
                   Icons.arrow_forward_ios_outlined,
-                  color: Colors.deepPurple,
                 ),
                 onTap: (){
                   Navigator.pushNamed(context, Routes.updatepassword);
@@ -191,39 +181,24 @@ imageFile=AssetImage('assets/images/user-image.png');
                   ListTile(
                      title: const Text(
                     "recruited_persons",
-                    style: TextStyle(
-                      color: Colors.deepPurple
-                    )
                     ).tr(),
-                    trailing:const Text("xxxx",
-                  style: TextStyle(
-                    color: Colors.deepPurple
+                    trailing:const Text("0",)
                   ),
-                    )
-                  ),
-              Gap(),
+              const Gap(),
 
               const ListTile(
                 title: Text(
                   "commission",
-                  style: TextStyle(
-                    color: Colors.deepPurple
-                  ),
                 ),
                 trailing: Text(
-                  "xxxx",
-                  style: TextStyle(
-                    color: Colors.deepPurple
-                  ),
+                  "0.00",
                 ),
               ),
-              Gap(),
+              const Gap(),
               ListTile(
-                textColor: Colors.deepPurple,
-                title: Text("kin_address").tr(),
-                trailing: Icon(
-                    Icons.arrow_forward_ios_outlined,
-                    color: Colors.deepPurple,
+                title: const Text("kin_address").tr(),
+                trailing: const Icon(
+                    Icons.arrow_forward_ios_outlined
               ),
                 onTap: (){
                   Navigator.pushNamed(context, Routes.kinaddress);

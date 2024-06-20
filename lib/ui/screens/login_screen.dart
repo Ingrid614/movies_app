@@ -13,8 +13,8 @@ class LoginScreen extends StatelessWidget {
    LoginScreen({Key? key}) : super(key: key);
 
   bool passwordVisible = false ;
-  TextEditingController _emailController=TextEditingController();
-  TextEditingController _passwordController=TextEditingController();
+  final TextEditingController _emailController=TextEditingController();
+  final TextEditingController _passwordController=TextEditingController();
    final _formKey = GlobalKey<FormState>();
 
 
@@ -57,11 +57,13 @@ class LoginScreen extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
+                            const Gap(size: 50,),
                             Center(
                               child: Image.asset(
-                                  'assets/images/Saction Logo UNO-01.png',
-                                  color: Colors.deepPurple),
+                                  'assets/images/katika_logo.jpeg',
+                              width: 250),
                             ),
+                            const Gap(size: 90,),
                             TextFormField(
                               validator: (String? value){
                                 bool emailValid = RegExp(
@@ -118,7 +120,7 @@ class LoginScreen extends StatelessWidget {
                             const Gap(size: 20.0),
                             InkWell(
                               onTap: () {
-                                Navigator.pushNamed(context, Routes.signup);
+                                Navigator.pushReplacementNamed(context, Routes.signup);
                               },
                               child: const Text(
                                 'create_an_account',
@@ -139,11 +141,13 @@ class LoginScreen extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.center,
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
+                                const Gap(size: 50,),
                                 Center(
                                   child: Image.asset(
-                                      'assets/images/Saction Logo UNO-01.png',
-                                      color: Colors.deepPurple),
+                                      'assets/images/katika-logo-transparent.png',
+                                      width: 250),
                                 ),
+                                const Gap(size: 90,),
                                 TextFormField(
                                   validator: (String? value){
                                     bool emailValid = RegExp(
@@ -180,7 +184,8 @@ class LoginScreen extends StatelessWidget {
                                 const Gap(size: 40.0,),
                                 ElevatedButton(
                                   onPressed: () {
-                                    if(_formKey.currentState!.validate()) {
+                                    if
+                                    (_formKey.currentState!.validate()) {
                                       Object data = {
                                         'email': _emailController.text.trim(),
                                         'password': _passwordController.text.trim()
@@ -197,7 +202,7 @@ class LoginScreen extends StatelessWidget {
                                 const Gap(size: 20.0),
                                 InkWell(
                                   onTap: () {
-                                    Navigator.pushNamed(context, Routes.signup);
+                                    Navigator.pushReplacementNamed(context, Routes.signup);
                                   },
                                   child: const Text(
                                     'create_an_account',

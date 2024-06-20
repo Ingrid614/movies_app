@@ -1,21 +1,38 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:ludokin_agent/business/cubit/command_cubit/command_cubit.dart';
+import 'package:ludokin_agent/business/cubit/command_cubit/command_state.dart';
+import 'package:ludokin_agent/data/models/client.dart';
+import 'package:ludokin_agent/data/models/commande.dart';
+import 'package:ludokin_agent/data/providers/api_provider.dart';
+import 'package:ludokin_agent/data/repositories/api_repository.dart';
 import 'package:ludokin_agent/ui/widgets/gap.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../routes/routes.dart';
-import 'command_screen.dart';
+import '../widgets/command_field.dart';
+import '../widgets/kin_snackbar.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+class HomeScreen extends StatefulWidget {
+  HomeScreen({Key? key}) : super(key: key);
 
   @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  final ApiProvider _apiProvider = ApiProvider();
+
+  Client client = Client(adresseKin: 'hxnynzx2r2tyu', numeroWhatsapp: '658596547', emailClient: 'stephanie2004@gmail.com', nomClient: 'stephanie', updatedAt: DateTime.now(), createdAt: DateTime.now(), id: 1);
+  @override
   Widget build(BuildContext context) {
+    Command command1 = Command(id: 1, createdAt: DateTime.now(), updatedAt: DateTime.now(), userId: 1, clientId: 1, adresseKin: 'chnqnquoqcncxnq', montant: 20000, taux: 6,cout: 1200,  client: client, statutId: 1);
+    ApiRepository apiRepository = ApiRepository(_apiProvider);
     double w = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
-        title: Text("transaction").tr(),
+        title: const Text("transaction").tr(),
       ),
 
       body: Padding(
@@ -25,7 +42,7 @@ class HomeScreen extends StatelessWidget {
                     scrollDirection: Axis.vertical,
                     child: Column(
                     children: [
-                      Gap(size: 5),
+                      const Gap(size: 5),
                       Container(
                         height: w*0.35,
                         child: Column(
@@ -33,31 +50,30 @@ class HomeScreen extends StatelessWidget {
                         Container(
                             height: 140,
                             width: 289,
-                            margin: EdgeInsets.all(20),
+                            margin: const EdgeInsets.all(20),
                             child: Card(
                               elevation: 5,
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(20.0)),
-                              color: Colors.deepPurple,
                               child: Column(
                                   children: [
                                   const Text(
-
-                                  "balance",
+                                    "balance",
                                   style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 16.0,
                                     decoration: TextDecoration.underline,
                                   ),
                                 ).tr(),
-                                Gap(size: 45),
+                                const Gap(size: 45),
                                 const Text(
-                                  "720,500 Fcfa",
+                                  "0.00 Fcfa",
                                   style: TextStyle(
                                     color: Colors.white,
                                     fontWeight: FontWeight.bold,
                                     fontSize: 24.0,
-                                  ),)
+                                  ),
+                                )
                               ]
                           ),
 
@@ -75,11 +91,9 @@ class HomeScreen extends StatelessWidget {
                                     mainAxisAlignment: MainAxisAlignment
                                         .spaceAround,
                                     crossAxisAlignment: CrossAxisAlignment.center,
-                                    children: [Text(
+                                    children: [
+                                      const Text(
                                       "buy",
-                                      style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white,),
                                     ).tr(),
                                       SvgPicture.asset(
                                         'assets/images/inbox-archive-fill.svg',
@@ -88,7 +102,7 @@ class HomeScreen extends StatelessWidget {
                             )
                         )
                         ),
-                        Gap(size: 73),
+                        const Gap(size: 73),
                         Expanded(child: ElevatedButton(
                             onPressed: () {
                               Navigator.pushReplacementNamed(
@@ -99,12 +113,9 @@ class HomeScreen extends StatelessWidget {
                                     mainAxisAlignment: MainAxisAlignment
                                         .spaceAround,
                                     crossAxisAlignment: CrossAxisAlignment.center,
-                                    children: [Text(
+                                    children: [const Text(
                                       "sell",
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.white),
-                                    ).tr(),
+                                  ).tr(),
                                       SvgPicture.asset(
                                         'assets/images/inbox-unarchive-fill.svg',
                                         color: Colors.white,)
@@ -116,60 +127,84 @@ class HomeScreen extends StatelessWidget {
                     ),
           ])
                     ),
-                    Gap(size: 20),
+                    const Gap(size: 20),
                     Container(
                       alignment: Alignment.bottomLeft,
-                        child: Text("recent_transaction",
+                        child: const Text("recent_transaction",
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 14,
-                              color: Colors.deepPurple,
+                              // color: Colors.deepPurple,
                               decoration: TextDecoration.underline,
                             ),
                           textAlign: TextAlign.left,
                         ).tr(),
                     ),
-
-                                      ShowCommand(
-                                          whatsAppNumber: "(+237)xxxxxx",
-                                          name: "Moufe Ingrid",
-                                          montantKin: 20000,
-                                          isSelling: true),
-                                      Gap(),
-                                      ShowCommand(whatsAppNumber: "(+237)xxxxxx",
-                                          name: "Sylvannie FOKO",
-                                          montantFcfa: 150,
-                                          isSelling: false),
-                                      Gap(),
-                                      ShowCommand(whatsAppNumber: "(+237)xxxxxx",
-                                          name: "Darline Ingrid",
-                                          montantFcfa: 500,
-                                          isSelling: false),
-                                      Gap(),
-                                      ShowCommand(
-                                        whatsAppNumber: "(+237)xxxxxx",
-                                        name: "Bego Lea",
-                                        isSelling: true,
-                                        montantKin: 600000,),
-                                      Gap(),
-                                      ShowCommand(
-                                        whatsAppNumber: "(+237)xxxxxx",
-                                        name: "Noubissi Loren",
-                                        isSelling: false,
-                                        montantFcfa: 70000,),
-                                      Gap(),
-                                      ShowCommand(
-                                          whatsAppNumber: "(+237)xxxxxx",
-                                          name: "Russel",
-                                          isSelling: false),
-                                      Gap()
-
-
-
+                      BlocConsumer<CommandCubit, CommandState>(
+                        listener: (BuildContext context,CommandState state){
+                          if(state is LoadingCommandFailed){
+                          showErrorSnack(context,state.message);
+                          }
+                      },
+                        builder: (BuildContext context, CommandState state) {
+                          switch(state.runtimeType){
+                            case LoadingCommand :
+                              return  const Center(child: CircularProgressIndicator(color: Colors.deepPurple,));
+                            case LoadingCommandSuccess:
+                              return ListView.builder(
+                                shrinkWrap: true,
+                                itemCount: 1,
+                                // context.read<CommandCubit>().commands.value.length,
+                                physics: const AlwaysScrollableScrollPhysics(),
+                                itemBuilder: (context, int index) {
+                                  return Column(
+                                    children: [
+                                      const Gap(),
+                                      ShowCommand( command: command1,isSelling: true),
+                                      const Gap(),
+                                      ShowCommand( command: command1,isSelling: false),
+                                      const Gap(),
+                                      ShowCommand( command: command1,isSelling: true),
+                                      const Gap(),
+                                      ShowCommand( command: command1,isSelling: false),
+                                    ],
+                                  );
+                                },
+                              );
+                            default:
+                              return ListView.builder(
+                                shrinkWrap: true,
+                                itemCount: 1,
+                                // context.read<CommandCubit>().commands.value.length,
+                                physics: const AlwaysScrollableScrollPhysics(),
+                                itemBuilder: (context, int index) {
+                                  return Column(
+                                    children: [
+                                      const Gap(),
+                                      const Gap(),
+                                      ShowCommand( command: command1,isSelling: true),
+                                      const Gap(),
+                                      ShowCommand( command: command1,isSelling: false),
+                                      const Gap(),
+                                      ShowCommand( command: command1,isSelling: true),
+                                      const Gap(),
+                                      ShowCommand( command: command1,isSelling: false),
+                                    ],
+                                  );
+                                },
+                              );
+                          }
+                        }
+                      )
                         ],),
                   )
           )
       )
     );
+    
+  }
+  @override
+  void initState() {
+    context.read<CommandCubit>().getAllCommands();
   }
 }

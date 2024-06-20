@@ -2,17 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:ludokin_agent/business/cubit/auth_cubit/auth_cubit.dart';
+import 'package:ludokin_agent/business/cubit/locale_cubit.dart';
 import 'package:ludokin_agent/business/cubit/splash_cubit.dart';
 import 'package:ludokin_agent/ui/routes/routes.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:adaptive_theme/adaptive_theme.dart';
-import 'package:ludokin_agent/ui/screens/bottom_navigation_bar_screen.dart';
-import 'package:ludokin_agent/ui/screens/home_screen.dart';
 import 'package:ludokin_agent/ui/screens/splash_screen.dart';
 import 'package:ludokin_agent/ui/themes/themes.dart';
 import 'business/cubit/auth_cubit/signup_cubit.dart';
 import 'business/cubit/auth_cubit/update_cubit.dart';
+import 'business/cubit/command_cubit/command_cubit.dart';
 import 'business/cubit/password_visible.dart';
+import 'business/cubit/theme_cubit.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -40,7 +41,7 @@ class MyApp extends StatelessWidget {
         light: lightTheme,
         dark: darkTheme,
         initial: AdaptiveThemeMode.light,
-        builder: (theme, darkTheme) =>
+        builder: (theme, lightTheme) =>
 
              MultiBlocProvider(
               providers: [
@@ -48,7 +49,10 @@ class MyApp extends StatelessWidget {
                 BlocProvider(create: (_) => PasswordVisibleCubit()..togglePasswordVisible()),
                 BlocProvider(create: (_) => AuthCubit()),
                 BlocProvider(create: (_) => SignUpCubit()),
-                BlocProvider(create: (_) => UpdateCubit())
+                BlocProvider(create: (_) => UpdateCubit()),
+                BlocProvider(create: (_) => CommandCubit()),
+                BlocProvider(create: (_) => LocaleCubit(const Locale('french'))),
+                BlocProvider(create: (_) => ThemeCubit(AdaptiveThemeMode.light))
 
               ],
               child: MaterialApp(
@@ -60,7 +64,10 @@ class MyApp extends StatelessWidget {
                   theme: lightTheme,
                   initialRoute: '/',
                   routes: Routes.routes(context),
-                  home: id == null ? const SplashScreen() : const BottomNavigationBarScreen(),
+                  home: const SplashScreen()
+                  // id == null ?
+                  // const SplashScreen()
+                  //     : const BottomNavigationBarScreen(),
               ),
             )
             );

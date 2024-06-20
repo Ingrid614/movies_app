@@ -16,6 +16,7 @@
     "required_field": "Please enter some text",
     "valid_email": "Invalid Email",
     "whatsapp_number": "whatsapp number",
+    "commercial_number": "Commercial number",
     "cni_number": "CNI number",
     "transaction": "TRANSACTION",
     "home": "home",
@@ -71,7 +72,14 @@
     "loggingIn": "Logging in...",
     "loginFailed": "Login failed ",
     "wrong credentials": "wrong credentials",
-    "no user found": "No user found"
+    "no user found": "No user found",
+    "updateFailed": "Update Failed",
+    "updateSuccess": "Update success",
+    "updating": "Updating...",
+    "sendingFailed": "Sending command failed",
+    "sendingCommand": "Sending Command...",
+    "commandSent": "Command sent",
+    "loadingCommandFailed": "Loading commands failed. Check your Internet connection!"
 
 }
 

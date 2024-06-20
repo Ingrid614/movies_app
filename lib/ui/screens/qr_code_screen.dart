@@ -16,7 +16,7 @@ class QrCodeScreen extends StatelessWidget {
             onPressed: (){
               Navigator.pop(context);
             },
-            icon: Icon(Icons.arrow_back,color: Colors.deepPurple,)
+            icon: const Icon(Icons.arrow_back)
           ),
         ),
         body: SafeArea(
@@ -27,14 +27,14 @@ class QrCodeScreen extends StatelessWidget {
               width: w*0.8,
               color: Colors.white,
               child: Card(
-                color: Color(0xff818181),
+                color: const Color(0xff818181),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20.0,),
                 ),
                 child: Column(
                   children: [
                     Gap(),
-                    Text("Wallet Address",
+                    const Text("Wallet Address",
                       style: TextStyle(
                         color: Colors.white,
                       fontWeight: FontWeight.bold,
@@ -45,34 +45,36 @@ class QrCodeScreen extends StatelessWidget {
                       width: w*0.6,
                       child: Card(
                         elevation: 0,
-                        color: Color(0xff818181),
+                        color: const Color(0xff818181),
                         child: Image.asset('assets/images/QR-code.png'),),
                     ),
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(8.0, 0, 8.0, 0),
+                        const Padding(
+                          padding: EdgeInsets.fromLTRB(8.0, 0, 8.0, 0),
                           child: Text("kjfiwjiodjdnGHSNAjkjcknicqoihjijaKJFAOAJGJLFWJAKFJOAJJA",
                           style: TextStyle(color: Colors.white),
                             textAlign: TextAlign.center,
                           ),
                         ),
-                        Gap(size: 20,),
+                        const Gap(size: 20,),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Gap(size: 15,),
+                            const Gap(size: 15,),
                             ElevatedButton(
                               style: ButtonStyle(
-                                fixedSize: MaterialStateProperty.all(Size(75, 50))
+                                backgroundColor: MaterialStateProperty.all(Colors.deepPurple),
+                                fixedSize: MaterialStateProperty.all(const Size(75, 50))
                               ),
                                 onPressed: (){},
-                                child: Text("Copy", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),)),
+                                child: const Text("Copy", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),)),
                             ElevatedButton(
                                 style: ButtonStyle(
-                                    fixedSize: MaterialStateProperty.all(Size(75, 50))
+                                    backgroundColor: MaterialStateProperty.all(Colors.deepPurple),
+                                    fixedSize: MaterialStateProperty.all(const Size(75, 50))
                                 ),
                                 onPressed: (){},
-                            child: Text("Share", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),)),
-                            Gap(size: 15,)
+                            child: const Text("Share", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),)),
+                            const Gap(size: 15,)
                       ],
                     )
                   ],

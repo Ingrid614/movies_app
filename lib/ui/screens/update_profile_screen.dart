@@ -51,7 +51,7 @@ class UpdateProfileScreenState extends State<UpdateProfileScreen>{
             onPressed: (){
               Navigator.pop(context);
             },
-              icon: const Icon(Icons.arrow_back, color: Colors.deepPurple,)),
+              icon: const Icon(Icons.arrow_back,)),
         ),
         body: Padding(
           padding: const EdgeInsets.all(8),
@@ -64,11 +64,11 @@ class UpdateProfileScreenState extends State<UpdateProfileScreen>{
                       showErrorSnack(context, state.message);
                     }
                     if(state is Updated){
-                      showSuccessSnack(context,'Update success');
+                      showSuccessSnack(context,'updateSuccess'.tr());
                       Navigator.pushReplacementNamed(context, Routes.bottomnavbar,arguments: state.user);
                     }
                     if(state is Updating){
-                      showSuccessSnack(context,'Updating...');
+                      showSuccessSnack(context,'updating'.tr());
                     }
                   },
                   builder: (BuildContext context, UpdateState state){

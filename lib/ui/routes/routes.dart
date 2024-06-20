@@ -37,7 +37,7 @@ class Routes {
     return {
       '/login': (context) =>  LoginScreen(),
       '/signup': (context) => const SignUpScreen(),
-      '/home': (context) => const HomeScreen(),
+      '/home': (context) =>   HomeScreen(),
       '/sellkin': (context) => const SellScreen(),
       '/buykin': (context) => const BuyScreen(),
       '/chat': (context) =>  ChatScreen(),
@@ -46,10 +46,10 @@ class Routes {
       '/updateaccount': (context) => const UpdateProfileScreen(),
       '/updatepassword': (context) => const UpdatePasswordScreen(),
       '/scan': (context) => const QRViewExample(),
-      '/bottomnavbar':(context) => BottomNavigationBarScreen(),
-      '/inbox':(context) => InboxScreen(),
-      '/kinaddress':(context) => QrCodeScreen(),
-      '/onboarding':(context) => OnboardingPages()
+      '/bottomnavbar':(context) => const BottomNavigationBarScreen(),
+      '/inbox':(context) => const InboxScreen(),
+      '/kinaddress':(context) => const QrCodeScreen(),
+      '/onboarding':(context) => const OnboardingPages()
     };
   }
 }

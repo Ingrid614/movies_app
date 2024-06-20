@@ -14,7 +14,7 @@ class ChatScreen extends StatelessWidget{
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("chat_title").tr()
+        title: const Text("chat_title").tr()
       ),
       body: Padding(
         padding: const EdgeInsets.all(8),
@@ -23,9 +23,9 @@ class ChatScreen extends StatelessWidget{
               scrollDirection: Axis.vertical,
               children: [
                 ShowContact(name: "Agent 1", number: "(+237)xxxxxx"),
-                Gap(size: 30,),
+                const Gap(size: 30,),
                 ShowContact(name: "Agent 2", number: "(+237)xxxxxx"),
-                Gap(size: 30,),
+                const Gap(size: 30,),
                 ShowContact(name: "Agent 3", number: "(+237)xxxxxx")
 
                 ],
@@ -51,23 +51,20 @@ class ShowContact extends StatelessWidget{
      onTap: (){
        Navigator.pushNamed(context,Routes.inbox);
      },
-     leading: Icon(Icons.account_circle,
+     leading: const Icon(Icons.account_circle,
        size: 50,),
      title: Text(
        name,
-       style: TextStyle(
-           color: Colors.deepPurple
-       ),
      ),
      subtitle: Text(
        number,
-       style: TextStyle(
+       style: const TextStyle(
          color: Color(0xff818181),
        ),
      ),
      trailing: Text(
          format.format(now).toString(),
-          style:  TextStyle(
+          style:  const TextStyle(
             color:Color(0xff818181)
           ),),
    );

@@ -20,7 +20,7 @@ class SignUpCubit extends Cubit<SignUpState>{
       print('trying signing up');
       await Future.delayed(const Duration(seconds: 4),(){});
       var response = await apiRepository.registerUser(user);
-      emit(SignUpSuccess(user));
+      emit(SignUpSuccess(response));
     }catch (e){
       emit(SignUpFailed('signUpFailed'.tr()+apiRepository.responseBody));
     }

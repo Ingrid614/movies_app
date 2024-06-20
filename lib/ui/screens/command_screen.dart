@@ -1,106 +1,98 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:ludokin_agent/business/cubit/command_cubit/command_cubit.dart';
+import 'package:ludokin_agent/business/cubit/command_cubit/command_state.dart';
+import '../../data/models/commande.dart';
+import '../widgets/command_field.dart';
 import '../widgets/gap.dart';
+import '../widgets/kin_snackbar.dart';
+import 'package:ludokin_agent/data/models/client.dart';
 
-class CommandScreen extends StatelessWidget{
+class CommandScreen extends StatefulWidget{
   const CommandScreen({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      resizeToAvoidBottomInset: false,
-      appBar: AppBar(
-        title: Text("command_title").tr(),
-      ),
-      body:
-
-            ListView(
-              scrollDirection: Axis.vertical,
-              children: [
-                ShowCommand(whatsAppNumber: "(+237)xxxxxx", name: "Moufe Ingrid", montantKin: 20000 , isSelling: true),
-                Gap(),
-                ShowCommand(whatsAppNumber: "(+237)xxxxxx", name: "Sylvannie FOKO", montantFcfa: 150, isSelling: false),
-                Gap(),
-                ShowCommand(whatsAppNumber: "(+237)xxxxxx", name: "Darline Ingrid", montantFcfa: 500 ,isSelling: false)
-        ],
-      ),
-
-    );
-  }
-
+  State<CommandScreen> createState() => _CommandScreenState();
 }
 
-class ShowCommand extends StatelessWidget {
-ShowCommand({Key? key, required this.whatsAppNumber, required this.name,  this.montantKin=0,  this.montantFcfa=0, required this.isSelling}) : super(key: key);
+class _CommandScreenState extends State<CommandScreen> {
 
-double montantKin;
-double montantFcfa;
- final String whatsAppNumber;
- final String name;
-
- final bool isSelling;
- 
- DateTime now = DateTime.now();
- DateFormat formatDate = DateFormat('dd-MM-yyyy | hh.mm');
+  Client client = Client(adresseKin: 'hxnynzx2r2tyu', numeroWhatsapp: '658596547', emailClient: 'stephanie2004@gmail.com', nomClient: 'stephanie', updatedAt: DateTime.now(), createdAt: DateTime.now(), id: 1);
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      leading: SvgPicture.asset('assets/images/todo-line.svg', color: Colors.deepPurple),
-      title: IntrinsicHeight(
-        child: Row(
-        children: [
-          Text(whatsAppNumber,style: TextStyle(color: Colors.deepPurple),),
-          VerticalDivider(),
-          Text(name, style: TextStyle(color: Colors.deepPurple),),
+    Command command1 = Command(id: 1, createdAt: DateTime.now(), updatedAt: DateTime.now(), userId: 1, clientId: 1, adresseKin: 'chnqnquoqcncxnq', montant: 20000, taux: 6,cout: 1200,  client: client, statutId: 1);
+    return Scaffold(
+      resizeToAvoidBottomInset: false,
+      appBar: AppBar(
+        title: const Text("command_title").tr(),
+      ),
+      body: BlocConsumer<CommandCubit,CommandState>(
+        listener: (BuildContext context, CommandState state){
+          if(state is LoadingCommandFailed){
+            showErrorSnack(context,state.message);
+          }
+        },
+        builder: (BuildContext context, CommandState state) {
+          switch (state.runtimeType){
+            case LoadingCommand :
+              return  const Center(child: CircularProgressIndicator(color: Colors.deepPurple,));
+            case LoadingCommandSuccess:
+              return ListView.builder(
+                shrinkWrap: true,
+                itemCount: 1,
+                // context.read<CommandCubit>().commands.value.length,
+                physics: const AlwaysScrollableScrollPhysics(),
+                itemBuilder: (context, int index) {
+                  return Column(
+                    children: [
+                      const Gap(),
+                      ShowCommand( command: command1,isSelling: true),
+                      const Gap(),
+                      ShowCommand( command: command1,isSelling: true),
+                      const Gap(),
+                      ShowCommand( command: command1,isSelling: true),
+                      const Gap(),
+                      ShowCommand( command: command1,isSelling: true),
 
-        ],
-      ),
-    ),
-      subtitle: Text(
-        formatDate.format(now),
-        style: TextStyle(
-          color: Color(0xff818181)
-        ),
-      ),
-      onTap: (){
-        isSelling? montantFcfa = (montantKin*8)/1000
-        : montantKin = (montantFcfa*1000)/8;
-        showDialog(context: context, builder: (BuildContext context){
-          return IntrinsicHeight(
-              child: AlertDialog(
-                title: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    ],
+                  );
+                },
+              );
+            default:
+              return ListView.builder(
+                shrinkWrap: true,
+                itemCount: 1,
+                // context.read<CommandCubit>().commands.value.length,
+                physics: const AlwaysScrollableScrollPhysics(),
+                itemBuilder: (context, int index) {
+                  return Column(
                     children: [
-                      Expanded(
-                          child:Text("details", style: TextStyle(color: Colors.deepPurple),).tr(),
-                      ),
-                      IconButton(
-                          onPressed: (){
-                            Navigator.pop(context);
-                          },
-                          icon: Icon(Icons.close_sharp)
-                      )
-                    ]),
-                content: Flexible(
-                  child: ListView(
-                    shrinkWrap: true,
-                    children: [
-                      Divider(height: 1, color: Color(0xff818181),),
-                      Text("Nom du client : ${name}", style: TextStyle(color: Colors.deepPurple),),
-                      Text(isSelling?"Transaction : Vente de kin" : "Transaction : Achat de kin", style: TextStyle(color: Colors.deepPurple),),
-                      isSelling? Text("Montant : ${montantKin} B KIN | ${montantFcfa} Fcfa", style: TextStyle(color: Colors.deepPurple),)
-                      : Text("Montants : ${montantFcfa} Fcfa | ${montantKin} B KIN", style: TextStyle(color: Colors.deepPurple)),
-                       Text("Commission : ${montantFcfa*0.03} Fcfa", style: TextStyle(color: Colors.deepPurple),)
-            ]) ,
-              )
-          )
-          );
-        });
-      },
+                      const Gap(),
+                      ShowCommand( command: command1,isSelling: true),
+                      const Gap(),
+                      ShowCommand( command: command1,isSelling: true),
+                      const Gap(),
+                      ShowCommand( command: command1,isSelling: true),
+                      const Gap(),
+                      ShowCommand( command: command1,isSelling: true),
+                    ],
+                  );
+                },
+              );
+          }
+
+        }
+      ),
 
     );
   }
 
+  @override
+  void initState() {
+    context.read<CommandCubit>().getAllCommands();
+  }
 }
+

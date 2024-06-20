@@ -4,8 +4,15 @@ import 'package:ludokin_agent/business/cubit/splash_cubit.dart';
 
 import '../routes/routes.dart';
 
-class SplashScreen extends StatelessWidget {
+class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
+
+  @override
+  State<SplashScreen> createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+
 
   @override
   Widget build(BuildContext context) {
@@ -25,9 +32,9 @@ class SplashScreen extends StatelessWidget {
                   child:Container(
                     width: MediaQuery.of(context).size.width,
                       height: MediaQuery.of(context).size.height,
-                      color: Colors.deepPurple,
+                      color: Colors.white,
                     child: Center(
-                      child: Image.asset('assets/images/Saction Logo UNO-01.png',color: Colors.white),
+                      child: Image.asset('assets/images/katika-logo-transparent.png',width: 250,),
               )
               )
           )
@@ -36,4 +43,9 @@ class SplashScreen extends StatelessWidget {
 
     );
   }
+
+  // @override
+  // void initState() {
+  //   context.read<SplashCubit>().isLoggedIn();
+  // }
 }

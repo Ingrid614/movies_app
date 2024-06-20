@@ -19,13 +19,13 @@ class Client {
     required this.id,
   });
 
-  String adresseKin;
-  String numeroWhatsapp;
-  String emailClient;
-  String nomClient;
-  DateTime updatedAt;
-  DateTime createdAt;
-  int id;
+  String? adresseKin;
+  String? numeroWhatsapp;
+  String? emailClient;
+  String? nomClient;
+  DateTime? updatedAt;
+  DateTime? createdAt;
+  int? id;
 
   factory Client.fromJson(Map<String, dynamic> json) => Client(
     adresseKin: json["adresse_kin"],
@@ -42,8 +42,8 @@ class Client {
     "numero_whatsapp": numeroWhatsapp,
     "email_client": emailClient,
     "nom_client": nomClient,
-    "updated_at": updatedAt.toIso8601String(),
-    "created_at": createdAt.toIso8601String(),
+    "updated_at": updatedAt!.toIso8601String(),
+    "created_at": createdAt!.toIso8601String(),
     "id": id,
   };
 }

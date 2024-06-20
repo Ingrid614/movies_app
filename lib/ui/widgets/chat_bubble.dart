@@ -22,7 +22,7 @@ class ChatBubble extends StatelessWidget{
 
                   child: Text(
                   message,
-                style: TextStyle(
+                style: const TextStyle(
                   color: Colors.white,
                   fontSize: 16.0
                 ),

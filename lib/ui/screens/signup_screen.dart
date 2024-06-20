@@ -154,7 +154,7 @@ class SignUpScreenState extends State<SignUpScreen>{
                            controller: whatsappNumberController,
                            obscureText: false,
                            decoration: InputDecoration(
-                             labelText: "whatsapp_number".tr(),
+                             labelText: "commercial_number".tr(),
                            ),
                            validator: (String? value){
                              if (value == null || value.isEmpty) {
@@ -260,7 +260,7 @@ class SignUpScreenState extends State<SignUpScreen>{
                          const Gap(),
                          InkWell(
                            onTap: (){
-                             Navigator.pushNamed(context, Routes.login);
+                             Navigator.pushReplacementNamed(context, Routes.login);
                            },
                            child: const Text(
                              "already_have_account",
@@ -344,7 +344,7 @@ class SignUpScreenState extends State<SignUpScreen>{
                            controller: whatsappNumberController,
                            obscureText: false,
                            decoration: InputDecoration(
-                             labelText: "whatsapp_number".tr(),
+                             labelText: "commercial_number".tr(),
                            ),
                            validator: (String? value){
                              if (value == null || value.isEmpty) {
@@ -450,7 +450,7 @@ class SignUpScreenState extends State<SignUpScreen>{
                          const Gap(),
                          InkWell(
                            onTap: (){
-                             Navigator.pushNamed(context, Routes.login);
+                             Navigator.pushReplacementNamed(context, Routes.login);
                            },
                            child: const Text(
                              "already_have_account",
@@ -465,13 +465,10 @@ class SignUpScreenState extends State<SignUpScreen>{
                    );
                }
              },
-
            ),
-
         )
         ),
       )
-
     );
   }
 

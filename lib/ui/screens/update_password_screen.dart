@@ -2,7 +2,6 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-import '../routes/routes.dart';
 import '../widgets/gap.dart';
 
 class UpdatePasswordScreen extends StatelessWidget{
@@ -12,9 +11,9 @@ class UpdatePasswordScreen extends StatelessWidget{
   Widget build(BuildContext context) {
    return Scaffold(
      appBar: AppBar(
-       title: Text("update_password_title").tr(),
+       title: const Text("update_password_title").tr(),
        leading: IconButton(
-         icon:Icon(Icons.arrow_back,color: Colors.deepPurple,),
+         icon:const Icon(Icons.arrow_back,),
        onPressed: (){
            Navigator.pop(context);
        },)
@@ -24,28 +23,28 @@ class UpdatePasswordScreen extends StatelessWidget{
        child: SafeArea(
          child: Column(
            children: [
-             Gap(size: 74,),
+             const Gap(size: 74,),
              TextField(
                obscureText: true,
                decoration: InputDecoration(
                  labelText: "enter_old_password".tr(),
                ),
              ),
-             Gap(size: 20,),
+             const Gap(size: 20,),
              TextField(
                obscureText: true,
                decoration: InputDecoration(
                  labelText: "enter_new_password".tr(),
                ),
              ),
-             Gap(size: 20,),
+             const Gap(size: 20,),
              TextField(
                obscureText: true,
                decoration: InputDecoration(
                  labelText: "confirm_password".tr()
                ),
              ),
-             Gap(),
+             const Gap(),
              Align(
                alignment: Alignment.centerLeft,
                child:InkWell(
@@ -59,10 +58,10 @@ class UpdatePasswordScreen extends StatelessWidget{
                ).tr(),
              ),
        ),
-             Gap(size: 20,),
+             const Gap(size: 20,),
              ElevatedButton(
                  onPressed:(){},
-                 child: Text(
+                 child: const Text(
                      "register",
                  style: TextStyle(
                    color: Colors.white
