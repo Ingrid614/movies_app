@@ -1,27 +1,16 @@
-// To parse this JSON data, do
-//
-//     final command = commandFromJson(jsonString);
-
 import 'dart:convert';
-import 'package:ludokin_agent/data/models/client.dart';
 
+List<Movie> movieFromJson(String str) => List<Movie>.from(json.decode(str).map((x) => Movie.fromJson(x)));
 
-List<Command> commandFromJson(String str) => List<Command>.from(json.decode(str).map((x) => Command.fromJson(x)));
+String movieToJson(List<Movie> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
-String commandToJson(List<Command> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
-
-class Command {
+class Movie {
   int? id;
   DateTime? createdAt;
   DateTime? updatedAt;
-  int? userId;
-  int? clientId;
-  String? adresseKin;
-  double? montant;
-  int? taux;
-  double? cout;
-  int? statutId;
-  Client? client;
+  String? synopsis;
+  int32? note;
+  DateTime? dateDeSortie
 
   Command({
     required this.id,
