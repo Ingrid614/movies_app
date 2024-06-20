@@ -15,9 +15,3 @@ class ApiProvider{
   }
 }
   
-
-    var response = http.put(uri,body: data).timeout(const Duration(seconds: 20));
-
-    return response;
-  }
-}
